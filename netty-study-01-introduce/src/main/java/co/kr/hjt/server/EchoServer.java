@@ -16,7 +16,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @author USER
  *
  */
-public class DiscardServer {
+public class EchoServer {
 	public static void main(String[] args) throws Exception {
 		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -28,7 +28,7 @@ public class DiscardServer {
 				@Override
 				protected void initChannel(SocketChannel ch) throws Exception {
 					ChannelPipeline p = ch.pipeline();
-					p.addLast(new DiscardServerHandler());
+					p.addLast(new EchoServerHandler());
 				}
 			});
 			
