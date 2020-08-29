@@ -10,7 +10,8 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
- * putty를 이용하여 Connection type을 RAW로 설정 
+ * putty를 이용하여 접속할 경우
+ * Connection type을 RAW로 설정 
  * ip는 localhost
  * port는 8888로 설정
  * @author USER
