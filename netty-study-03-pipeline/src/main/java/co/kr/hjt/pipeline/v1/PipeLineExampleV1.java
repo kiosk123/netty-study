@@ -1,4 +1,4 @@
-package co.kr.hjt.bootstrap;
+package co.kr.hjt.pipeline.v1;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -9,7 +9,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
-public class EchoServer {
+public class PipeLineExampleV1 {
 	public static void main(String[] args) throws Exception {
 		EventLoopGroup bossGroup = new NioEventLoopGroup(1); 
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
