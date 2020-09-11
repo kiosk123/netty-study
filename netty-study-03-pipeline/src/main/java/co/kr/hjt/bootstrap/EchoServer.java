@@ -27,7 +27,10 @@ public class EchoServer {
 				@Override
 				protected void initChannel(SocketChannel ch) throws Exception {
 					ChannelPipeline p = ch.pipeline(); //채널 파이프라인 객체 생성
-					p.addLast(new ChannelInboundEventHandler());//채널파이프라인에 클라이언트 연결시 데이터처리할 이벤트 핸들러 등록
+					
+					//채널파이프라인에 클라이언트 연결시 데이터처리할 이벤트 핸들러 등록 - 다음과 같이 여러개 등록가능
+					p.addLast(new ChannelInboundFirstEventHandler());
+					p.addLast(new ChannelInboundSecondEventHandler());
 				}
 			});
 			
