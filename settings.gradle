@@ -11,3 +11,4 @@ rootProject.name = 'netty-study'
 
 include 'netty-study-01-introduce'
 include 'netty-study-02-bootstrap'
+include 'netty-study-03-pipeline'
