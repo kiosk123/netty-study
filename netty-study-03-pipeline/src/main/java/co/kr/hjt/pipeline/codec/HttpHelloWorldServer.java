@@ -14,7 +14,6 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
 
 /**
  * 기본 제공 codec 종류
- * 예제 : https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example
  * 패키지 : io.netty.handler.codec
  * base64, bytes, compression(zlib,gzip,snappy등), http(sub: cors, multipart, websocketx등)
  * marshalling, protobuf, sctp, spdy, string, serialization(자바 객체의 네트워크 전송)

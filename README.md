@@ -3,6 +3,7 @@
 Gradle을 이용하여 각 장마다 서브프로젝트로 공부한 내용을 정리하였음
 * Netty 버전 4.1.51.Final  
 * java 버전 1.8
+* 예제 : https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example
 
 ## 목차
 
@@ -14,3 +15,5 @@ Gradle을 이용하여 각 장마다 서브프로젝트로 공부한 내용을 �
   - 이벤트 핸들러 등록방법과 소켓 옵션 설정방법 소켓 입출력 방식 설정 방법 확인
 * netty-study-03-pipeline
   - 채널파이프라인을 통해 이동하는 이벤트를 처리하는 이벤트 핸들러 구현방법과 자주 사용하는 이벤트 핸들러를 미리 구현해놓은 코덱의 활용
+* netty-study-04-eventloop
+  - 이벤트 루프에 대한 개념
