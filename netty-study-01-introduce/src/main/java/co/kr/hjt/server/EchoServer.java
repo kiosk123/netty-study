@@ -10,35 +10,32 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
- * putty를 이용하여 접속할 경우
- * Connection type을 RAW로 설정 
- * ip는 localhost
- * port는 8888로 설정
+ * putty를 이용하여 접속할 경우 Connection type을 RAW로 설정 ip는 localhost port는 8888로 설정
+ * 
  * @author USER
  *
  */
 public class EchoServer {
-	public static void main(String[] args) throws Exception {
-		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
-		EventLoopGroup workerGroup = new NioEventLoopGroup();
-		try {
-			ServerBootstrap b = new ServerBootstrap();
-			b.group(bossGroup, workerGroup)
-			 .channel(NioServerSocketChannel.class)
-			 .childHandler(new ChannelInitializer<SocketChannel>() {
-				@Override
-				protected void initChannel(SocketChannel ch) throws Exception {
-					ChannelPipeline p = ch.pipeline();
-					p.addLast(new EchoServerHandler());
-				}
-			});
-			
-			//ServerBootstrap.bind를 이용하여 접속할 포트지정
-			ChannelFuture f = b.bind(8888).sync();
-			f.channel().closeFuture().sync();
-		} finally {
-			workerGroup.shutdownGracefully();
-			bossGroup.shutdownGracefully();
-		}
-	}
+    public static void main(String[] args) throws Exception {
+        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        try {
+            ServerBootstrap b = new ServerBootstrap();
+            b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
+                        @Override
+                        protected void initChannel(SocketChannel ch) throws Exception {
+                            ChannelPipeline p = ch.pipeline();
+                            p.addLast(new EchoServerHandler());
+                        }
+                    });
+
+            // ServerBootstrap.bind를 이용하여 접속할 포트지정
+            ChannelFuture f = b.bind(8888).sync();
+            f.channel().closeFuture().sync();
+        } finally {
+            workerGroup.shutdownGracefully();
+            bossGroup.shutdownGracefully();
+        }
+    }
 }

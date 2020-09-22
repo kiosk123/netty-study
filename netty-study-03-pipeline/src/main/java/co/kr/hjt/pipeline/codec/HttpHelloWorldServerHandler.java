@@ -24,7 +24,7 @@ public class HttpHelloWorldServerHandler extends SimpleChannelInboundHandler<Htt
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
-    	//웹 브라우저로부터 데이터가 모두 수신되었을 때 처널 버퍼의 내용을 웹 브라우저로 전송한다.
+        // 웹 브라우저로부터 데이터가 모두 수신되었을 때 처널 버퍼의 내용을 웹 브라우저로 전송한다.
         ctx.flush();
     }
 
@@ -35,10 +35,8 @@ public class HttpHelloWorldServerHandler extends SimpleChannelInboundHandler<Htt
 
             boolean keepAlive = HttpUtil.isKeepAlive(req);
             FullHttpResponse response = new DefaultFullHttpResponse(req.protocolVersion(), OK,
-                                                                    Unpooled.wrappedBuffer(CONTENT));
-            response.headers()
-                    .set(CONTENT_TYPE, TEXT_PLAIN)
-                    .setInt(CONTENT_LENGTH, response.content().readableBytes());
+                    Unpooled.wrappedBuffer(CONTENT));
+            response.headers().set(CONTENT_TYPE, TEXT_PLAIN).setInt(CONTENT_LENGTH, response.content().readableBytes());
 
             if (keepAlive) {
                 if (!req.protocolVersion().isKeepAliveDefault()) {

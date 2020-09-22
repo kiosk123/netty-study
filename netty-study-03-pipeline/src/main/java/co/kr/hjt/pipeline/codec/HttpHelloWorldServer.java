@@ -23,44 +23,44 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
 
 /**
  * HTTP 서버
+ * 
  * @author USER
  *
  */
 public class HttpHelloWorldServer {
-	static final boolean SSL = System.getProperty("ssl") != null;
-	static final int PORT = Integer.parseInt(System.getProperty("port", SSL? "8443" : "8080"));
-	
-	public static void main(String[] args) throws Exception {
-		//SSL 구성
-		final SslContext sslCtx;
-		if (SSL) {
-			SelfSignedCertificate ssc = new SelfSignedCertificate();
-			sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
-		} else {
-			sslCtx = null;
-		}
-		
-		//서버 구성
-		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
-		EventLoopGroup workerGroup = new NioEventLoopGroup();
-		
-		try {
-			ServerBootstrap b = new ServerBootstrap();
-			b.option(ChannelOption.SO_BACKLOG, 1024);
-			b.group(bossGroup, workerGroup)
-			.channel(NioServerSocketChannel.class)
-			.handler(new LoggingHandler(LogLevel.INFO))
-			
-			//채널 파이프라인 설정
-			.childHandler(new HttpHelloWorldServerInitializer(sslCtx));
-			
-			Channel ch = b.bind(PORT).sync().channel();
-			System.err.println("Open your web browser and navigate to"
-					+ (SSL? "https" : "http") + "://127.0.0.1:" + PORT +"/");
-			ch.closeFuture().sync();
-		} finally {
-			bossGroup.shutdownGracefully();
-			workerGroup.shutdownGracefully();
-		}
-	}
+    static final boolean SSL = System.getProperty("ssl") != null;
+    static final int PORT = Integer.parseInt(System.getProperty("port", SSL ? "8443" : "8080"));
+
+    public static void main(String[] args) throws Exception {
+        // SSL 구성
+        final SslContext sslCtx;
+        if (SSL) {
+            SelfSignedCertificate ssc = new SelfSignedCertificate();
+            sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
+        } else {
+            sslCtx = null;
+        }
+
+        // 서버 구성
+        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
+
+        try {
+            ServerBootstrap b = new ServerBootstrap();
+            b.option(ChannelOption.SO_BACKLOG, 1024);
+            b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
+                    .handler(new LoggingHandler(LogLevel.INFO))
+
+                    // 채널 파이프라인 설정
+                    .childHandler(new HttpHelloWorldServerInitializer(sslCtx));
+
+            Channel ch = b.bind(PORT).sync().channel();
+            System.err.println(
+                    "Open your web browser and navigate to" + (SSL ? "https" : "http") + "://127.0.0.1:" + PORT + "/");
+            ch.closeFuture().sync();
+        } finally {
+            bossGroup.shutdownGracefully();
+            workerGroup.shutdownGracefully();
+        }
+    }
 }
