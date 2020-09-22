@@ -21,7 +21,7 @@ public class EchoServerWithFuture {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline p = ch.pipeline();
-                            p.addLast(new EchoServerDefaultChannelListenerHandler());
+                            p.addLast(new EchoServerHandlerWithFuture());
                         }
                     });
 

@@ -31,7 +31,6 @@ public class EchoServerHandlerWithFuture extends ChannelInboundHandlerAdapter {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
                 System.out.println("전송한 Byte : " + writeMessageSize);
-                
                 //ChannelFuture 객체에 포함된 채널을 가져와서 채널 닫기 이벤트를 발생시킨다.
                 future.channel().close();
             }
