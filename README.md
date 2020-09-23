@@ -3,7 +3,8 @@
 Gradle을 이용하여 각 장마다 서브프로젝트로 공부한 내용을 정리하였음
 * Netty 버전 4.1.51.Final  
 * java 버전 1.8
-* 예제 : https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example
+* [예제](https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example) 
+* [네티 저자 코드](https://github.com/krisjey/netty.book.kor) 
 
 ## 목차
 
