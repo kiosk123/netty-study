@@ -20,3 +20,5 @@ Gradle을 이용하여 각 장마다 서브프로젝트로 공부한 내용을 �
   - 이벤트 루프에 대한 개념 및 퓨처패턴의 활용
 * netty-study-05-bytebuffer
   - 네티 바이트 버퍼 활용 (자바 NIO 바이트버퍼 X) 
+* netty-study-06-security
+  - 네티 채널 보안 관련 내용 
