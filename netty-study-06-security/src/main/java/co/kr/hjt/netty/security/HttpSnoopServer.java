@@ -25,6 +25,7 @@ public final class HttpSnoopServer {
      */
     static final int PORT = 8443;
     public static void main(String[] args) throws Exception {
+
         // Configure SSL.
         SslContext sslCtx = null;
         
