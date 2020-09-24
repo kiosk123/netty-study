@@ -1,6 +1,10 @@
 # 윈도우 OpenSSL 설정 
 # https://blog.naver.com/PostView.nhn?blogId=baekmg1988&logNo=221454486746
 
+# 키스토어를 이용한 설정
+# https://m.blog.naver.com/PostView.nhn?blogId=kmjyarto&logNo=220027237912&proxyReferer=https:%2F%2Fwww.google.com%2F
+# https://m.blog.naver.com/lovesm135/220963135637
+
 # 설치 참고 https://deep-dive-dev.tistory.com/40
 # TLS프로토콜을 적용하려면 공개키 암호화에 사용되는 인증서가 필요함
 # 인증서는 웹 서버에서 사용하는 인증서와 동일하며 파일은 Pem 형식이어야함
