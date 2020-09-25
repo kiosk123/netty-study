@@ -1,5 +1,6 @@
-# 윈도우 OpenSSL 설정 
+# 윈도우 OpenSSL 설정 - cmd는 관리자 모드로 실
 # https://blog.naver.com/PostView.nhn?blogId=baekmg1988&logNo=221454486746
+# https://pparkhyung.gitbooks.io/nene/content/ssl.html
 
 # 키스토어를 이용한 설정
 # https://m.blog.naver.com/PostView.nhn?blogId=kmjyarto&logNo=220027237912&proxyReferer=https:%2F%2Fwww.google.com%2F
@@ -95,10 +96,7 @@ An optional company name []:
 # CSR에 전자서몀을 하여 인증서 생성. 
 # 작성한 비밀키를 이용하한 전자서명하여 인증서 생성
 # 다음은 만료기간이 1년인 인증서 생성
-$ openssl x509 \
--in netty.csr -out netty.crt \
--req -signkey privatekey.pem \
--days 356
+$ openssl x509 -in netty.csr -out netty.crt -req -signkey privatekey.pem -days 356
  
 $ ls -al netty*
 -rw-rw-r-- 1 centos centos 1273  9월 24 11:55 netty.crt
@@ -139,6 +137,4 @@ Private-Key: (2048 bit)
 # 	... 2 more
 # 다음은 ASN.1을 PCKS#8 형식으로 변환하는 명령이다.
 $ cp privatekey.pem privatekey.pem.org
-$ openssl pkcs8 -topk8 \
--inform PEM -outform PEM \
--in privatekey.pem.org -out privatekey.pem
+$ openssl pkcs8 -topk8 -inform PEM -outform PEM -in privatekey.pem.org -out privatekey.pem
