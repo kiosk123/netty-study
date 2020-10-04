@@ -3,6 +3,8 @@ package co.kr.hjt.api;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
+import co.kr.hjt.api.config.ApiServerConfig;
+
 public class ApiServerMain {
     public static void main(String[] args) {
         AbstractApplicationContext springContext = null;
@@ -12,6 +14,8 @@ public class ApiServerMain {
 
             ApiServer server = springContext.getBean(ApiServer.class);
             server.start();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         finally {
             springContext.close();

@@ -15,10 +15,15 @@ import co.kr.hjt.api.core.JedisHelper;
 import co.kr.hjt.api.core.KeyMaker;
 import co.kr.hjt.api.service.dao.TokenKey;
 import redis.clients.jedis.Jedis;
-
+/**
+ * 토큰 발급
+ * @author USER
+ *
+ */
 @Service("tokenIssue")
 @Scope("prototype")
 public class TokenIssue extends ApiRequestTemplate {
+    //레디스에 접근하기 위한 헬퍼클래스
     private static final JedisHelper helper = JedisHelper.getInstance();
 
     @Autowired

@@ -1,4 +1,4 @@
-package co.kr.hjt.api.service.dao;
+package co.kr.hjt.api.config;
 
 import javax.sql.DataSource;
 
@@ -16,8 +16,6 @@ public class HsqlDataSource {
     // jdbc:hsqldb:mem:testdb
     @Bean
     public DataSource dataSource() {
-
-  
         // no need shutdown, EmbeddedDatabaseFactoryBean will take care of this
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.HSQL).addScript("db/sql/create-db.sql")

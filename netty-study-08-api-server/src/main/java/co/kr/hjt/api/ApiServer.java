@@ -14,7 +14,11 @@ import java.net.InetSocketAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
+/**
+ * 서버 부트 스트랩 설정
+ * @author USER
+ *
+ */
 @Component
 public final class ApiServer {
     @Autowired

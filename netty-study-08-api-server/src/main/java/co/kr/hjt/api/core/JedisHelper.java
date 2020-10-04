@@ -18,6 +18,7 @@ public class JedisHelper {
 
     /**
      * 제디스 연결풀 생성을 위한 도우미 클래스 내부 생성자. 싱글톤 패턴이므로 외부에서 호출할 수 없다.
+     * 제디스 커넥션 풀 생성
      */
     private JedisHelper() {
         GenericObjectPoolConfig config = new GenericObjectPoolConfig();

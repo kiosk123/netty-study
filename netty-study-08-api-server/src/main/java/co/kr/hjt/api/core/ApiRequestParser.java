@@ -125,11 +125,15 @@ public class ApiRequestParser extends SimpleChannelInboundHandler<FullHttpMessag
         request = null;
     }
 
+    /**
+     * HTTP POST 본문데이터 추출
+     */
     private void readPostData() {
         try {
             decoder = new HttpPostRequestDecoder(factory, request);
             for (InterfaceHttpData data : decoder.getBodyHttpDatas()) {
                 if (HttpDataType.Attribute == data.getHttpDataType()) {
+                    //클라이언트의 FORM 태그로 전송한 데이터를 추출
                     try {
                         Attribute attribute = (Attribute) data;
                         reqData.put(attribute.getName(), attribute.getValue());

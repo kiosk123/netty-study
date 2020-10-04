@@ -1,4 +1,4 @@
-package co.kr.hjt.api;
+package co.kr.hjt.api.config;
 
 import java.net.InetSocketAddress;
 
@@ -10,10 +10,13 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
+/**
+ * 스프링 설정
+ */
 @Configuration
-@ImportResource("classpath:spring/hsqlApplicationContext.xml")
-@ComponentScan("com.github.nettybook.ch9.core, com.github.nettybook.ch9, com.github.nettybook.ch9.service")
-@PropertySource("classpath:api-server.properties")
+@ImportResource("classpath:co/kr/hjt/spring/hsqlApplicationContext.xml")
+@ComponentScan("co.kr.hjt.api, co.kr.hjt.api.core, co.kr.hjt.api.service, co.kr.hjt.config")
+@PropertySource("classpath:server.properties")
 public class ApiServerConfig {
     @Value("${boss.thread.count}")
     private int bossThreadCount;
