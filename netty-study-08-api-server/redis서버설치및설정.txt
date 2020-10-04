@@ -1,0 +1,25 @@
+1. 윈도우용 레드시 서버 다운로드
+  https://github.com/microsoftarchive/redis/releases
+
+2. Redis-x64-3.2.100.zip 압축풀기
+
+3. redis.conf 파일을 압축푼 디렉터리에 생성
+4. redis.conf 파일 내용 작성
+port 6379
+timeout 0
+tcp-keepalive 0
+save ""
+maxmemory 100mb
+loglevel debug
+
+5. redis.conf 파일 내용 설명
+port 레디스 서버의 접속 대기 포트
+timeout 클라이언트로부터 데이터 송수신이 없을 경우 끝난다.(초)
+tcp-keepalive 클라이언트에 지정된 시간 간격으로 TCP ACK 패킷 전송(초)
+save 레디스에 저장된 데이터를 디스크로 저장하는 시간 
+     save 60 10000으로 설정시 60초동안 10000번 데이터가 변경되었을때 디스크에 저장
+maxmemory 레디스가 데이터를 저장하는데 사용할 메모리 단위는 b,k,m,g이며 대소문자 구분을 하지않음
+          (ex. 1gb)
+          
+6. 실행
+redis-server.exe redis.conf

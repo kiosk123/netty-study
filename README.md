@@ -24,3 +24,5 @@ Gradle을 이용하여 각 장마다 서브프로젝트로 공부한 내용을 �
   - 네티 채널 보안 관련 내용 
 * netty-study-07-springframework
   - 네티를 스프링 프레임워크를 이용해서 사용하는 방법과 테스트 방법과 관련된 내용 
+* netty-study-08-api-server
+  - 네티를 이용한 RESTful API 서버 예제

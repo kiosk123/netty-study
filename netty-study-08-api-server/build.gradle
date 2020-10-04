@@ -1,0 +1,12 @@
+
+dependencies {
+    implementation "org.springframework:spring-core:5.0.5.RELEASE"
+    implementation "org.springframework:spring-context:5.0.5.RELEASE"
+    implementation 'org.springframework:org.springframework.jdbc:3.2.1.RELEASE'
+    implementation 'org.hsqldb:hsqldb:2.5.1'
+    implementation "org.slf4j:slf4j-simple:1.7.25"
+    implementation 'org.mybatis:mybatis:3.5.5'
+    implementation 'redis.clients:jedis:3.3.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'org.apache.logging.log4j:log4j-core:2.13.3'
+}

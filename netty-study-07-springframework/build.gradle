@@ -7,21 +7,21 @@ dependencies {
     implementation "org.slf4j:slf4j-simple:1.7.25"
 }
 
-/*
-    의존하는 jar파일 모두 build 디렉터리에 생성
-*/
-task dependJarCopy(type: Copy) {
-    from configurations.compileClasspath//대상파일 경로   
-    into jar.destinationDir       //목적지 경로
-    
-    include "**/*.jar"
-}
-
-task list(dependsOn: configurations.compileClasspath) {
-    doLast {
-        println "classpath = ${configurations.compileClasspath.collect { File file -> file.name }}"
-    }
-}
+///*
+//    의존하는 jar파일 모두 build 디렉터리에 생성
+//*/
+//task dependJarCopy(type: Copy) {
+//    from configurations.compileClasspath//대상파일 경로   
+//    into jar.destinationDir       //목적지 경로
+//    
+//    include "**/*.jar"
+//}
+//
+//task list(dependsOn: configurations.compileClasspath) {
+//    doLast {
+//        println "classpath = ${configurations.compileClasspath.collect { File file -> file.name }}"
+//    }
+//}
 
 jar {
     baseName = "${project.name}"
