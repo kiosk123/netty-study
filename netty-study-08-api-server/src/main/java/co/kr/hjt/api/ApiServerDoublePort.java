@@ -52,7 +52,7 @@ public final class ApiServerDoublePort {
               .childHandler(new ApiServerInitializer(sslCtx));
             
             Channel ch2 = b2.bind(8443).sync().channel();
-            channelFuture = ch.closeFuture();
+            channelFuture = ch2.closeFuture();
             channelFuture.sync();
         }
         catch (InterruptedException | SSLException | CertificateException e) {
